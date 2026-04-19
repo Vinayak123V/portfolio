@@ -48,45 +48,47 @@ io.on("connection", async (socket) => {
   console.log("User connected:", socket.id);
   onlineUsers++;
 
-  // Send visitor notification email
+  const q = socket.handshake.query;
   const ip = socket.handshake.headers["x-forwarded-for"] || socket.handshake.address;
   const time = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  const browser = q.browser || "Unknown";
+  const os = q.os || "Unknown";
+  const language = q.language || "Unknown";
+  const screenSize = q.screenSize || "Unknown";
+  const timezone = q.timezone || "Unknown";
+  const referrer = q.referrer || "Direct";
+  const city = q.city || "Unknown";
+  const country = q.country || "Unknown";
+
   try {
-    console.log("Sending visitor email to vinayakhosur85@gmail.com...");
+    console.log("Sending visitor email...");
     await transporter.sendMail({
       from: `"Portfolio Visitor Alert" <vinayakhosur85@gmail.com>`,
       to: "vinayakhosur85@gmail.com",
       subject: `👀 New Visitor on vinayakhosur.com`,
       html: `
-        <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
-          <!-- Header -->
+        <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
           <div style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); padding: 36px 32px 28px; text-align: center;">
             <div style="font-size: 2.2rem; margin-bottom: 10px;">👀</div>
             <h1 style="color: #00ff88; font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: 1px;">Vinayak Portfolio Visitor</h1>
             <p style="color: #aaa; font-size: 0.9rem; margin: 8px 0 0;">Someone just visited your portfolio</p>
           </div>
-          <!-- Body -->
-          <div style="padding: 32px;">
+          <div style="padding: 28px 32px;">
             <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 14px 16px; font-weight: 600; color: #555; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; width: 130px; border-bottom: 1px solid #f0f0f0;">🕐 Time</td>
-                <td style="padding: 14px 16px; color: #222; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0;">${time} IST</td>
-              </tr>
-              <tr style="background: #fafafa;">
-                <td style="padding: 14px 16px; font-weight: 600; color: #555; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #f0f0f0;">🌐 IP Address</td>
-                <td style="padding: 14px 16px; color: #222; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; font-family: monospace;">${ip}</td>
-              </tr>
-              <tr>
-                <td style="padding: 14px 16px; font-weight: 600; color: #555; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">🟢 Online Now</td>
-                <td style="padding: 14px 16px; color: #222; font-size: 0.95rem;">
-                  <span style="background: #e6fff4; color: #00aa55; padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">${onlineUsers} user(s) online</span>
-                </td>
-              </tr>
+              <tr><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; width:130px; border-bottom:1px solid #f0f0f0;">🕐 Time</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${time} IST</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">🌐 IP Address</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0; font-family:monospace;">${ip}</td></tr>
+              <tr><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">📍 Location</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${city}, ${country}</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">🖥️ Browser</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${browser}</td></tr>
+              <tr><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">💻 OS</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${os}</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">🌍 Language</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${language}</td></tr>
+              <tr><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">📐 Screen</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${screenSize}</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">🕰️ Timezone</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${timezone}</td></tr>
+              <tr><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase; border-bottom:1px solid #f0f0f0;">🔗 Referrer</td><td style="padding:12px 14px; color:#222; font-size:0.93rem; border-bottom:1px solid #f0f0f0;">${referrer}</td></tr>
+              <tr style="background:#fafafa;"><td style="padding:12px 14px; font-weight:600; color:#555; font-size:0.82rem; text-transform:uppercase;">🟢 Online Now</td><td style="padding:12px 14px;"><span style="background:#e6fff4; color:#00aa55; padding:4px 12px; border-radius:20px; font-weight:600; font-size:0.88rem;">${onlineUsers} user(s) online</span></td></tr>
             </table>
           </div>
-          <!-- Footer -->
-          <div style="background: #f7f7f7; padding: 18px 32px; text-align: center; border-top: 1px solid #eee;">
-            <p style="margin: 0; font-size: 0.82rem; color: #aaa;">Sent automatically from <a href="https://vinayakhosur.com" style="color: #00aa55; text-decoration: none; font-weight: 600;">vinayakhosur.com</a></p>
+          <div style="background:#f7f7f7; padding:16px 32px; text-align:center; border-top:1px solid #eee;">
+            <p style="margin:0; font-size:0.82rem; color:#aaa;">Sent automatically from <a href="https://vinayakhosur.com" style="color:#00aa55; text-decoration:none; font-weight:600;">vinayakhosur.com</a></p>
           </div>
         </div>
       `
