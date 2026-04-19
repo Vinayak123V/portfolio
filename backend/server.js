@@ -10,14 +10,12 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://vinayakhosur.com", process.env.FRONTEND_URL].filter(Boolean),
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors({
-  origin: ["http://localhost:3000", "https://vinayakhosur.com", process.env.FRONTEND_URL].filter(Boolean)
-}));
+app.use(cors());
 app.use(express.json());
 
 // Nodemailer transporter using Gmail
