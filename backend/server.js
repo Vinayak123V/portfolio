@@ -144,7 +144,7 @@ app.post("/contact", async (req, res) => {
       subject: `New Message from ${name} - Portfolio Contact`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <h2 style="color: #00cc66; border-bottom: 2px solid #00cc66; padding-bottom: 10px;">New Portfolio Contact Message</h2>
+          <h2 style="color: #00cc66; border-bottom: 2px solid #00cc66; padding-bottom: 10px;">Vinayak Portfolio Contact Message</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 10px; font-weight: bold; color: #333; width: 120px;">Name:</td>
