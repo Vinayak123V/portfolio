@@ -1,0 +1,112 @@
+.cd-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: cdFadeIn 0.2s ease;
+}
+
+@keyframes cdFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.cd-modal {
+  background: white;
+  border-radius: 18px;
+  padding: 36px 32px 28px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+  animation: cdPopIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes cdPopIn {
+  from { transform: scale(0.75); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.cd-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 18px;
+}
+
+.cd-icon-danger  { background: #fff0f0; }
+.cd-icon-warning { background: #fff8e1; }
+.cd-icon-info    { background: #e8f4ff; }
+.cd-icon-success { background: #f0fff4; }
+
+.cd-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+.cd-message {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.cd-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cd-cancel {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.cd-cancel:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.cd-confirm {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.cd-confirm:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
+
+.cd-confirm-danger  { background: linear-gradient(135deg,#dc3545,#a71d2a); }
+.cd-confirm-warning { background: linear-gradient(135deg,#ffc107,#fd7e14); color: #1a1a1a; }
+.cd-confirm-info    { background: linear-gradient(135deg,#0066cc,#004999); }
+.cd-confirm-success { background: linear-gradient(135deg,#28a745,#1a7a32); }
+
+@media (max-width: 480px) {
+  .cd-modal { padding: 28px 20px 22px; border-radius: 14px; }
+  .cd-actions { flex-direction: column; }
+}

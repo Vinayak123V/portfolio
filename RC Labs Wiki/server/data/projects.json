@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "name": "Next-Gen BMS Platform",
+    "category": "Hardware",
+    "status": "Active",
+    "startDate": "2025-08-15",
+    "deadline": "2026-06-30",
+    "projectLead": "Dr. Rajesh Kumar",
+    "teamMembers": [
+      "Sarah Chen",
+      "Michael Brown",
+      "Priya Sharma",
+      "David Lee"
+    ],
+    "description": "Development of next-generation Battery Management System with enhanced AI-driven predictive maintenance capabilities and improved thermal management.",
+    "objectives": [
+      "Implement advanced machine learning algorithms for SOC/SOH estimation",
+      "Reduce power consumption by 30%",
+      "Support up to 200 cells in series configuration",
+      "Achieve automotive-grade safety certification (ISO 26262)"
+    ],
+    "progress": 65
+  },
+  {
+    "id": 2,
+    "name": "EV Two-Wheeler BMS",
+    "category": "Hardware",
+    "status": "Active",
+    "startDate": "2025-06-01",
+    "deadline": "2026-04-07",
+    "projectLead": "Anita Desai",
+    "teamMembers": [
+      "John Smith",
+      "Wei Zhang",
+      "Aisha Patel",
+      "Carlos Rodriguez"
+    ],
+    "description": "Compact BMS solution specifically designed for electric two-wheelers and three-wheelers with cost optimization focus.",
+    "objectives": [
+      "Reduce BOM cost by 25% compared to current solution",
+      "Support 48V and 60V battery packs",
+      "Integrate IoT connectivity for fleet management",
+      "Achieve IP67 rating for weather resistance"
+    ],
+    "progress": 80
+  },
+  {
+    "id": 3,
+    "name": "Energy Storage System (ESS) BMS",
+    "category": "Hardware",
+    "status": "Withheld",
+    "startDate": "2025-11-01",
+    "deadline": "2026-09-30",
+    "projectLead": "Thomas Anderson",
+    "teamMembers": [
+      "Lisa Wang",
+      "Ahmed Hassan",
+      "Maria Garcia"
+    ],
+    "description": "Large-scale BMS for stationary energy storage applications including solar integration and grid stabilization.",
+    "objectives": [
+      "Support battery packs up to 1 MWh capacity",
+      "Implement advanced grid integration features",
+      "Develop cloud-based monitoring dashboard",
+      "Ensure 20+ year operational lifespan"
+    ],
+    "progress": 15,
+    "withheldReason": "Awaiting regulatory approval for grid integration features"
+  },
+  {
+    "id": 4,
+    "name": "BMS Firmware v3.0",
+    "category": "Software",
+    "status": "Active",
+    "startDate": "2025-07-20",
+    "deadline": "2026-05-15",
+    "projectLead": "Kevin O'Brien",
+    "teamMembers": [
+      "Fatima Ali",
+      "Robert Johnson"
+    ],
+    "description": "Major firmware upgrade with enhanced safety features, OTA update capability, and improved diagnostics.",
+    "objectives": [
+      "Implement secure OTA firmware updates",
+      "Add advanced fault detection algorithms",
+      "Improve CAN communication efficiency"
+    ],
+    "progress": 55
+  },
+  {
+    "id": 6,
+    "name": "Ultra-Fast Charging BMS",
+    "category": "Hardware",
+    "status": "Aborted",
+    "startDate": "2025-03-01",
+    "deadline": "2025-12-31",
+    "projectLead": "Daniel Park",
+    "teamMembers": [
+      "Grace Lee",
+      "Mohammed Khan"
+    ],
+    "description": "BMS designed for ultra-fast charging applications with advanced thermal management.",
+    "objectives": [
+      "Support 350kW+ charging rates",
+      "Maintain battery temperature during fast charging",
+      "Minimize charging time to under 15 minutes"
+    ],
+    "progress": 30,
+    "abortReason": "Market demand shifted; technology not yet mature for mass production"
+  },
+  {
+    "id": 8,
+    "name": "AI Predictive Maintenance Engine",
+    "category": "Software",
+    "status": "Withheld",
+    "startDate": "2025-10-15",
+    "deadline": "2026-08-31",
+    "projectLead": "Dr. Alan Turing",
+    "teamMembers": [
+      "Maya Patel",
+      "Chris Evans"
+    ],
+    "description": "Machine learning engine for predicting battery failures and optimizing maintenance schedules.",
+    "objectives": [
+      "Predict battery failures 30 days in advance",
+      "Reduce maintenance costs by 40%",
+      "Integrate with existing BMS systems",
+      "Support multiple battery chemistries"
+    ],
+    "progress": 20,
+    "withheldReason": "Pending additional funding approval and data collection phase"
+  },
+  {
+    "id": 101,
+    "name": "Modular BMS Gen 2",
+    "category": "Hardware",
+    "status": "Completed",
+    "startDate": "2024-06-01",
+    "completedDate": "2025-12-15",
+    "projectLead": "Dr. Sarah Johnson",
+    "teamMembers": [
+      "Mark Wilson",
+      "Emily Chen",
+      "Raj Patel",
+      "Lisa Anderson",
+      "Tom Brown"
+    ],
+    "description": "Second generation modular BMS platform with improved scalability and cost efficiency.",
+    "objectives": [
+      "Successfully deployed in 500+ electric vehicles",
+      "Achieved 35% cost reduction compared to Gen 1",
+      "Obtained UL and CE certifications",
+      "Reduced assembly time by 40%"
+    ],
+    "achievements": [
+      "Exceeded deployment target by 25%",
+      "Won Industry Innovation Award 2025",
+      "Customer satisfaction rating: 4.8/5"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "LFP Battery Optimization",
+    "category": "Software",
+    "status": "Completed",
+    "startDate": "2024-10-01",
+    "completedDate": "2025-10-31",
+    "projectLead": "Dr. Michael Zhang",
+    "teamMembers": [
+      "Anna Kowalski",
+      "James Lee",
+      "Sofia Martinez",
+      "David Kim"
+    ],
+    "description": "Specialized algorithms for LiFePO4 (LFP) battery chemistry optimization.",
+    "objectives": [
+      "Improved SOC estimation accuracy to 98%",
+      "Extended battery cycle life by 15%",
+      "Developed temperature-adaptive charging profiles",
+      "Published 2 research papers on findings"
+    ],
+    "achievements": [
+      "Patent filed for novel algorithm",
+      "Adopted by 3 major EV manufacturers",
+      "Reduced charging time by 20%"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "www",
+    "category": "Software",
+    "status": "Completed",
+    "startDate": "2026-04-02",
+    "deadline": "2026-04-10",
+    "projectLead": "sss",
+    "teamMembers": [],
+    "description": "",
+    "objectives": [
+      ""
+    ],
+    "progress": 0,
+    "createdAt": "2026-04-02T05:13:33.490Z",
+    "createdBy": "1775106775490"
+  }
+]
