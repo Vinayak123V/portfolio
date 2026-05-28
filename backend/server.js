@@ -18,13 +18,19 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
+// Health check — used by frontend to wake the server on cold start
+app.get("/health", (req, res) => res.json({ status: "ok" }));
+
 // Nodemailer transporter using Gmail
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "vinayakhosur85@gmail.com",
     pass: process.env.GMAIL_APP_PASSWORD
-  }
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 mongoose.connect("mongodb+srv://system:Vinu%40123@cluster0.qpnmqit.mongodb.net/portfolio_website")
@@ -129,15 +135,22 @@ io.on("connection", async (socket) => {
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
-  try {
-    // Save to DB (optional - won't crash if MongoDB is unavailable)
-    try {
-      await Message.create(req.body);
-    } catch (dbErr) {
-      console.warn("DB save skipped:", dbErr.message);
-    }
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: "Missing fields" });
+  }
 
-    // Send email to Vinayak
+  // Respond to user immediately — don't make them wait for email/DB
+  res.json({ success: true });
+
+  // Save to DB in background
+  try {
+    await Message.create({ name, email, message });
+  } catch (dbErr) {
+    console.warn("DB save skipped:", dbErr.message);
+  }
+
+  // Send email in background
+  try {
     await transporter.sendMail({
       from: `"Portfolio Contact" <vinayakhosur85@gmail.com>`,
       to: "vinayakhosur85@gmail.com",
@@ -163,11 +176,9 @@ app.post("/contact", async (req, res) => {
         </div>
       `
     });
-
-    res.send({ success: true });
+    console.log(`Contact email sent from ${email}`);
   } catch (err) {
-    console.error("Email error:", err.message);
-    res.status(500).send({ success: false, error: err.message });
+    console.error("Email send failed:", err.message);
   }
 });
 
