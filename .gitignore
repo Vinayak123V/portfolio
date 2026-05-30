@@ -5,3 +5,6 @@ frontend/build/
 .env
 backend/.env
 frontend/.env
+
+# Local Netlify folder
+.netlify

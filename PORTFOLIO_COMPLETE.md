@@ -202,7 +202,7 @@ To personalize your portfolio:
 6. **Notes**: Add your learning notes in `Notes.js`
 7. **Contact**: Change contact info in `Contact.js`
 8. **Colors**: Adjust color variables in components
-9. **Resume**: Replace `/Vinayak_Resume_2025.pdf` with your file
+9. **Resume**: Replace `/Vinayak_Resume_2026.pdf` with your file
 
 ## 📝 Next Steps
 
