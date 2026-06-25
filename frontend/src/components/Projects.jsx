@@ -37,7 +37,7 @@ const projects = [
     category: "mobile",
     year: "2024",
     link: "https://agricare-c9542.web.app/",
-    github: "#"
+    github: "https://github.com/Vinayak123V/AGRICARE-WEBSITE"
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ const projects = [
     tech: ["Flutter", "Supabase", "Maps API"],
     category: "mobile",
     year: "2025",
-    link: "#",
+    link: "https://attendifyhub.netlify.app/",
     github: "https://github.com/Vinayak123V/Attendance-App"
   },
   {
@@ -58,8 +58,8 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     category: "fullstack",
     year: "2024",
-    link: "#",
-    github: "#"
+    link: "https://vhtourandtravel.netlify.app/",
+    github: "https://github.com/Vinayak123V/VH-TOUR-TRAVEL"
   },
   {
     id: 4,
@@ -71,6 +71,28 @@ const projects = [
     year: "2023",
     link: "#",
     github: "#"
+  },
+  {
+    id: 7,
+    title: "PAC Portal",
+    description: "A comprehensive portal application delivering centralized services.",
+    image: "/PAC Portal.png",
+    tech: ["React", "Node.js", "Express"],
+    category: "fullstack",
+    year: "2025",
+    link: "https://pacportal.netlify.app/",
+    github: "https://github.com/Vinayak123V/pac-portal"
+  },
+  {
+    id: 8,
+    title: "Free Education Hub",
+    description: "An open platform providing free educational resources and learning materials.",
+    image: "/educationhub.png",
+    tech: ["React", "CSS", "Firebase"],
+    category: "fullstack",
+    year: "2025",
+    link: "https://freeeducationhub.netlify.app/",
+    github: "https://github.com/Vinayak123V/Free-Education-Hub"
   }
 ];
 

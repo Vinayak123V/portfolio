@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-20"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden px-6 lg:px-20 pt-28 pb-20 md:pt-0 md:pb-0"
     >
       
       {/* Background Gradient Overlays */}
@@ -126,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 1 }}
-            className="flex gap-6 mt-16"
+            className="flex gap-6 mt-8 md:mt-16 z-20 relative"
           >
             <Magnetic><SocialLink href="https://github.com" icon={<GithubIcon />} /></Magnetic>
             <Magnetic><SocialLink href="https://linkedin.com" icon={<LinkedinIcon />} /></Magnetic>
@@ -139,9 +139,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
-          className="hidden lg:flex justify-center items-center relative"
+          className="flex justify-center items-center relative"
         >
-          <div className="relative w-[500px] h-[500px] flex items-center justify-center">
+          <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] flex items-center justify-center">
             {/* Holographic glowing rings */}
             <motion.div 
               animate={{ rotate: 360 }}
@@ -151,11 +151,11 @@ export default function Hero() {
             <motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-8 border-2 border-accent-secondary/20 rounded-full pointer-events-none"
+              className="absolute inset-4 md:inset-6 lg:inset-8 border-2 border-accent-secondary/20 rounded-full pointer-events-none"
             />
             
             {/* Image container with perfect centering */}
-            <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden border-4 border-white/10 shadow-[0_0_100px_rgba(108,92,231,0.3)] z-10 bg-gradient-to-br from-accent/10 to-accent-secondary/10">
+            <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-4 border-white/10 shadow-[0_0_100px_rgba(108,92,231,0.3)] z-10 bg-gradient-to-br from-accent/10 to-accent-secondary/10">
               <motion.img
                 src="/VINAY.png"
                 alt="Vinayak Hosur"
@@ -186,7 +186,7 @@ export default function Hero() {
                 opacity: [0.3, 0.5, 0.3]
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-12 border border-accent/20 rounded-full pointer-events-none"
+              className="absolute inset-6 md:inset-10 lg:inset-12 border border-accent/20 rounded-full pointer-events-none"
             />
           </div>
         </motion.div>
@@ -197,7 +197,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 cursor-pointer z-20"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 cursor-pointer z-20 hidden md:flex"
         data-cursor="pointer"
         onClick={() => {
           const el = document.getElementById("about-profile");

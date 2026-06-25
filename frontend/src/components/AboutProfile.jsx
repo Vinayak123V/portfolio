@@ -85,7 +85,7 @@ export default function AboutProfile() {
               Architecting the <br/>
               <span className="text-accent-secondary italic">digital future</span>
             </h3>
-            <div className="text-lg text-text-muted leading-relaxed mb-8 font-light">
+            <div className="text-lg text-text-muted leading-relaxed mb-8 font-light text-justify">
               <TextReveal>
                 With a Master of Computer Applications (MCA) currently being pursued, my area of expertise is designing contemporary, user-friendly websites. Something that initially sparked curiosity with HTML & CSS at the age of 19 has now become a career ambition: developing beautiful applications that address real-life issues using clean code and intuitive interfaces.
               </TextReveal>

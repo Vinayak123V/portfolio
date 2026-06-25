@@ -9,6 +9,7 @@ export default function Navigation({ activeSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [openMore, setOpenMore] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const sections = [
     { id: "hero", label: "Home", icon: <HomeIcon /> },
@@ -115,12 +116,39 @@ export default function Navigation({ activeSection }) {
        
       </motion.div>
 
-      {/* Navigation Items */}
-      <div style={{
-        display: "flex",
-        gap: "2rem",
-        alignItems: "center"
-      }}>
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden flex items-center gap-4">
+        <motion.button
+          onClick={cycleTheme}
+          whileHover={{ scale: 1.05, rotate: 30 }}
+          whileTap={{ scale: 0.9 }}
+          title={`Theme: ${themes.find(t => t.id === theme)?.label || theme}`}
+          style={{
+            background: "transparent",
+            border: "1px solid var(--border-medium)",
+            padding: "0.5rem",
+            borderRadius: "50%",
+            color: "var(--accent-primary)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+          }}
+        >
+          <PaletteIcon />
+        </motion.button>
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="p-2 text-foreground"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+          </svg>
+        </button>
+      </div>
+
+      {/* Desktop Navigation Items */}
+      <div className="hidden md:flex items-center" style={{ gap: "2rem" }}>
         {sections.map((section, index) => (
           <motion.button
             key={section.id}
@@ -335,6 +363,98 @@ export default function Navigation({ activeSection }) {
           </AnimatePresence>
         </div>
       </div>
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              background: "var(--bg-nav)",
+              backdropFilter: "blur(20px)",
+              borderBottom: "1px solid var(--border-nav)",
+              padding: "1rem 5%",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)"
+            }}
+            className="md:hidden"
+          >
+            {sections.map(section => (
+              <button
+                key={section.id}
+                onClick={() => { scrollToSection(section.id); setMobileMenuOpen(false); }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  padding: "0.8rem 1rem",
+                  borderRadius: "15px",
+                  background: activeSection === section.id ? "var(--gradient-nav-active)" : "transparent",
+                  color: activeSection === section.id ? "var(--accent-primary)" : "var(--text-nav)",
+                  border: activeSection === section.id ? "1px solid var(--border-nav)" : "1px solid transparent",
+                  fontSize: "1rem",
+                  fontWeight: "600"
+                }}
+              >
+                <span style={{ fontSize: "1.2rem", display: "flex", alignItems: "center" }}>{section.icon}</span>
+                {section.label}
+              </button>
+            ))}
+            <div style={{ height: "1px", background: "var(--border-medium)", margin: "0.5rem 0" }} />
+            {moreItems.map((item, i) => (
+              item.type === "link" ? (
+                <Link
+                  key={i}
+                  to={item.id}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "0.8rem 1rem",
+                    color: "var(--text-muted-light)",
+                    textDecoration: "none",
+                    fontWeight: "500"
+                  }}
+                >
+                  <span style={{ fontSize: "1.2rem", color: "var(--accent-primary)", display: "flex", alignItems: "center" }}>{item.icon}</span>
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={i}
+                  onClick={() => { handleMoreItemClick(item); setMobileMenuOpen(false); }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "0.8rem 1rem",
+                    color: "var(--text-muted-light)",
+                    background: "transparent",
+                    border: "none",
+                    width: "100%",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    fontWeight: "500",
+                    fontFamily: "inherit"
+                  }}
+                >
+                  <span style={{ fontSize: "1.2rem", color: "var(--accent-primary)", display: "flex", alignItems: "center" }}>{item.icon}</span>
+                  {item.name}
+                </button>
+              )
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

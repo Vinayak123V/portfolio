@@ -26,7 +26,7 @@ const projects = [
     tech: ["Flutter Framework", "Firebase", "Google Maps and Weather API"],
     category: "mobile",
     link: "https://agricare-c9542.web.app/",
-    github: "#",
+    github: "https://github.com/Vinayak123V/AGRICARE-WEBSITE",
     features: ["Service booking system", "Secure payment processing", "Provider tracking", "Weather integration"]
   },
   {
@@ -37,8 +37,8 @@ const projects = [
     image: "/VH.webp",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "fullstack",
-    link: "#",
-    github: "#",
+    link: "https://vhtourandtravel.netlify.app/",
+    github: "https://github.com/Vinayak123V/VH-TOUR-TRAVEL",
     features: ["Travel package showcase", "Responsive design", "Interactive UI", "Destination gallery"]
   },
   {
@@ -73,9 +73,33 @@ const projects = [
     image: "att app.jpeg",
     tech: ["Flutter", "Supabase", "Google Maps API"],
     category: "mobile",
-    link: "#",
-    github: "#",
+    link: "https://attendifyhub.netlify.app/",
+    github: "https://github.com/Vinayak123V/Attendance-App",
     features: ["GPS location verification", "Real-time attendance tracking", "Supabase authentication", "Google Maps integration", "Cross-platform Flutter app"]
+  },
+  {
+    id: 7,
+    title: "PAC Portal",
+    description: "A comprehensive portal application delivering centralized services.",
+    longDescription: "An integrated portal designed to centralize various services and provide seamless access to users. Features include user authentication, robust data management, and an intuitive dashboard interface.",
+    image: "PAC Portal.png",
+    tech: ["React", "Node.js", "Express"],
+    category: "fullstack",
+    link: "https://pacportal.netlify.app/",
+    github: "https://github.com/Vinayak123V/pac-portal",
+    features: ["Centralized dashboard", "User authentication", "Service integration", "Responsive design"]
+  },
+  {
+    id: 8,
+    title: "Free Education Hub",
+    description: "An open platform providing free educational resources and learning materials.",
+    longDescription: "A platform dedicated to democratizing education by providing open access to learning resources, courses, and interactive materials for students worldwide.",
+    image: "educationhub.png",
+    tech: ["React", "CSS", "Firebase"],
+    category: "fullstack",
+    link: "https://freeeducationhub.netlify.app/",
+    github: "https://github.com/Vinayak123V/Free-Education-Hub",
+    features: ["Resource catalog", "Interactive learning", "Open access", "Progress tracking"]
   }
 ];
 
