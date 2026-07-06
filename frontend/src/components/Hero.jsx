@@ -128,9 +128,8 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 1 }}
             className="flex gap-6 mt-8 md:mt-16 z-20 relative"
           >
-            <Magnetic><SocialLink href="https://github.com" icon={<GithubIcon />} /></Magnetic>
-            <Magnetic><SocialLink href="https://linkedin.com" icon={<LinkedinIcon />} /></Magnetic>
-            <Magnetic><SocialLink href="https://twitter.com" icon={<TwitterIcon />} /></Magnetic>
+            <Magnetic><SocialLink href="https://www.linkedin.com/in/vinayak-hosur-49074b22a/" icon={<LinkedinIcon />} /></Magnetic>
+            <Magnetic><SocialLink href="https://github.com/Vinayak123V" icon={<GithubIcon />} /></Magnetic>
           </motion.div>
         </motion.div>
         
